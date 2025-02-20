@@ -1,0 +1,50 @@
+.Navbar {
+    width: 80%;
+    margin: 1.5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Navbar__IconContainer {
+    display: flex;
+    align-items: center;
+}
+
+.Navbar__IconContainer h3 {
+    margin-left: 1.6rem;
+    color: #f8f8f8;
+    letter-spacing: .2em;
+}
+
+.Navbar__NavList {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.Navbar__NavList a {
+    all: unset;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+}
+
+.Navbar__NavList a::before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background-color: white;
+    transition: width 0.2s ease;
+}
+
+.Navbar__NavList a:hover::before {
+    width: 100%;
+}
+
+.Navbar__NavList li:not(:last-child) {
+    margin-right: 2rem;
+}
