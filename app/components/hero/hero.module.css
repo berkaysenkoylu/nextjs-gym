@@ -1,5 +1,59 @@
 .HeroSection {
-    background-color: yellow;
-    width: 70%;
     margin: 3rem auto 3rem auto;
+    display: flex;
+    gap: 3rem;
+    margin: 4rem auto;
+    width: 90%;
+    max-width: 75rem;
+}
+
+.HeroSection__Slideshow {
+    width: 35rem;
+    height: 25rem;
+}
+
+.HeroSection__Info {
+    width: 22rem;
+}
+
+.HeroSection__Info h2 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    background-image: linear-gradient(90deg, #f9572a, #ffc905);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.HeroSection__Info h2 + p {
+    color: #e4e4e4;
+    font-size: 1.1rem;
+}
+
+.HeroSection__Cta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.HeroSection__Cta a {
+    all: unset;
+    cursor: pointer;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+}
+
+.HeroSection__Cta a:first-child {
+    color: #fc9637;
+}
+
+.HeroSection__Cta a:last-child {
+    color: #ffffff;
+    font-weight: 700;
+    padding: 4px 8px;
+    background-image: linear-gradient(90deg, #f9572a, #cea307);
+    border-radius: 4px;
 }
