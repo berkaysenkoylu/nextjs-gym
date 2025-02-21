@@ -1,0 +1,63 @@
+.MealPage {
+    width: 80%;
+    margin: 5rem auto;
+}
+
+.MealPage__Header {
+    display: flex;
+    justify-content: center;
+}
+
+.MealPage__Header__ImgContainer {
+    position: relative;
+    width: 28rem;
+    height: 20rem;
+}
+
+.MealPage__Header img {
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.MealPage__Header__Text {
+    width: 30rem;
+    margin-left: 3rem;
+}
+
+.MealPage__Header__Text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #ccc;
+    margin: 1.5rem 0;
+}
+
+.creator {
+    font-size: 1.5rem;
+    color: #cfa69b;
+    font-style: italic;
+}
+
+.creator span {
+    background: linear-gradient(90deg, #f9572a, #ff8a05);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.summary {
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+.Instructions {
+    width: 75%;
+    margin: 3rem auto;
+    background-color: #7c625a;
+    padding: 1rem;
+    padding-bottom: 2rem;
+    border-radius: 6px;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+    font-family: 'Montserrat', sans-serif;
+}

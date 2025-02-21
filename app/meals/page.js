@@ -2,10 +2,12 @@ import Link from "next/link"
 import MealCard from "../components/mealcard/MealCard"
 
 import classes from './meals.module.css'
-import { mealList } from "../__mocks__"
+import { getMeals } from "@/api/meals"
 
 
 export default function MealsPage() {
+    const meals = getMeals()
+
     return (
         <section className={classes.Meals}>
             <header>
@@ -14,7 +16,7 @@ export default function MealsPage() {
                 <Link href="/meals/share" className={classes.Meals__ShareButton}>Share Your Favorite Recipe</Link>
             </header>
             <div className={classes.Meals__List}>
-                {mealList.map((meal, index) => {
+                {meals.map((meal, index) => {
                     return (
                         <MealCard key={index} mealData={meal} />
                     )

@@ -1,0 +1,101 @@
+.MealShare {
+    width: 80%;
+    margin: 5rem auto;
+}
+
+.MealShare header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8rem;
+    color: #ccc;
+    margin: 1.5rem 0;
+}
+
+.MealShare header > h2 > span {
+    background: linear-gradient(90deg, #f9572a, #ff8a05);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.MealShare header > p {
+    color: #ccc;
+    font-size: 1.4rem;
+}
+
+.Form {
+    width: 60%;
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+}
+
+.Form p {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.row p {
+    width: 100%;
+}
+
+.Form label {
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    color: #bdbbbb;
+    font-size: .9rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.Form input,
+.Form textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #454952;
+    background: #1c2027;
+    font-size: 1.25rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #ddd6cb;
+}
+
+.Form input:focus,
+.Form textarea:focus {
+  outline-color: #f99f2a;
+  background-color: #1f252d;
+}
+
+.Actions {
+    text-align: right;
+}
+
+.Actions button {
+    all: unset;
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: linear-gradient(90deg, #f9572a, #ff9b05);
+    color: #ffffff;
+    border-radius: 2px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.Actions button:hover,
+.Actions button:focus {
+    background: linear-gradient(90deg, #fd4715, #f9b241);
+}
+
+
+.Actions button:disabled,
+.Actions button:hover:disabled,
+.Actions button:focus:disabled {
+    background: #ccc;
+    color: #979797;
+    cursor: not-allowed;
+}
