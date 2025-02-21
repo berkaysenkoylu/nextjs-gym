@@ -17,7 +17,7 @@ const Navbar = () => {
       </div>
 
       <ul className={classes.Navbar__NavList}>
-        <li><Link href="meals">Browse Meals</Link></li>
+        <li><Link href="/meals">Browse Meals</Link></li>
         <li><Link href="/community">Foodies community</Link></li>
       </ul>
     </nav>

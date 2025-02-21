@@ -1,14 +1,25 @@
 import Link from "next/link"
+import MealCard from "../components/mealcard/MealCard"
+
+import classes from './meals.module.css'
+import { mealList } from "../__mocks__"
+
 
 export default function MealsPage() {
     return (
-        <main>
-            <h1 style={{ color: 'white', textAlign: 'center' }}>MEALS PAGE</h1>
-            <div>
-                <Link href="/meals/meal-1">MEAL 1</Link>
-                <Link href="/meals/meal-2">MEAL 2</Link>
-                <Link href="/meals/meal-3">MEAL 3</Link>
+        <section className={classes.Meals}>
+            <header>
+                <h1>Delicious meals, created <span>by you</span></h1>
+                <p>Choose your favorite recipe and cook it yourself. It is easy and fun!</p>
+                <Link href="/meals/share" className={classes.Meals__ShareButton}>Share Your Favorite Recipe</Link>
+            </header>
+            <div className={classes.Meals__List}>
+                {mealList.map((meal, index) => {
+                    return (
+                        <MealCard key={index} mealData={meal} />
+                    )
+                })}
             </div>
-        </main>
+        </section>
     )
 }
