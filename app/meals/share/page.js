@@ -77,7 +77,9 @@ export default function MealSharePage() {
             creator_email: formData.email.value
         }
 
-        saveMeal(formInputData)
+        saveMeal(formInputData).then(() => {
+            // Add a loader and hide it maybe?
+        })
     }
 
     const getFormValid = (data) => {

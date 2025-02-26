@@ -1,3 +1,5 @@
+"use server"
+
 import fs from "node:fs"
 import slugify from 'slugify'
 import xss from 'xss'
@@ -9,7 +11,7 @@ export const saveMeal = async (meal) => {
     meal.instructions = xss(meal.instructions)
 
     const extension = meal.image.name.split(".").pop()
-    const fileName = `${meal.slug}.${extension}`
+    const fileName = `${meal.mealId}.${extension}`
 
     const stream = fs.createWriteStream(`public/images/${fileName}`)
     const bufferedImage = await meal.image.arrayBuffer()
@@ -22,5 +24,5 @@ export const saveMeal = async (meal) => {
 
     meal.image = `/images/${fileName}`
 
-    saveNewMeal(meal)
+    await saveNewMeal(meal)
 }
