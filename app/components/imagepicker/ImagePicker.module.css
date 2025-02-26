@@ -1,0 +1,44 @@
+.ImagePicker {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    color: #c9c9c9;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ImagePicker__ImgPreview {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    border: 2px solid #c9c9c9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.ImagePicker__ImgPreview p {
+    width: 60%;
+}
+
+.ImagePicker button {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 8px 16px;
+    background-color: #c9c9c9;
+    color: #000;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.ImagePicker button:hover {
+    transform: translateY(-2px);
+    -webkit-box-shadow: 3px 5px 3px 0px rgba(0,0,0,0.53);
+    -moz-box-shadow: 3px 5px 3px 0px rgba(0,0,0,0.53);
+    box-shadow: 3px 5px 3px 0px rgba(0,0,0,0.53);
+}
+
+.ImagePicker button:focus {
+    transform: translateY(0px);
+}

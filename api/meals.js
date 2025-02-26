@@ -9,3 +9,7 @@ export const getMeals = () => {
 export const getMealById = (mealId) => {
     return db.prepare('SELECT * FROM meals WHERE mealId = ?').get(mealId)
 }
+
+export const saveNewMeal = (mealData) => {
+    console.log(mealData)
+}
