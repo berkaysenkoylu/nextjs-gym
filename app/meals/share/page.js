@@ -1,12 +1,19 @@
 "use client"
 
-import { useState } from "react"
+import { Fragment, useState } from "react"
+import { redirect } from "next/navigation"
+import dynamic from 'next/dynamic'
 
 import ImagePicker from "@/app/components/imagepicker/ImagePicker"
 import Input from "@/app/components/Input/Input"
 import { saveMeal } from "@/api/actions"
 
 import classes from "./mealshare.module.css"
+
+const CustomLoadingtWithNoSSR = dynamic(
+    () => import('@/app/components/CustomLoading/CustomLoading'),
+    { ssr: false }
+)
 
 export default function MealSharePage() {
     const [formData, setFormData] = useState({
@@ -65,6 +72,7 @@ export default function MealSharePage() {
         }
     })
     const [formIsValid, setFormIsValid] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -77,8 +85,16 @@ export default function MealSharePage() {
             creator_email: formData.email.value
         }
 
-        saveMeal(formInputData).then(() => {
-            // Add a loader and hide it maybe?
+        setLoading(true)
+        saveMeal(formInputData).then((response) => {
+            if (response?.error) {
+                const { error } = response || {}
+
+                console.error(error)
+            } else {
+                redirect("/meals")
+            }
+            setLoading(false)
         })
     }
 
@@ -142,26 +158,29 @@ export default function MealSharePage() {
     })
 
     return (
-        <section className={classes.MealShare}>
-            <header>
-                <h2>Share your <span>favorite meal</span></h2>
+        <Fragment>
+            {loading ? <CustomLoadingtWithNoSSR /> : null}
+            <section className={classes.MealShare}>
+                <header>
+                    <h2>Share your <span>favorite meal</span></h2>
 
-                <p>Or any other meal you feel needs sharing!</p>
-            </header>
-            
-            <form className={classes.Form} onSubmit={handleSubmit}>
-                <div className={classes.row}>
-                    {firstTwoFormFields}
-                </div>
+                    <p>Or any other meal you feel needs sharing!</p>
+                </header>
+                
+                <form className={classes.Form} onSubmit={handleSubmit}>
+                    <div className={classes.row}>
+                        {firstTwoFormFields}
+                    </div>
 
-                {restOfTheForm}
+                    {restOfTheForm}
 
-                <ImagePicker onImageSelected={onImageSelectedHandler} />
+                    <ImagePicker onImageSelected={onImageSelectedHandler} />
 
-                <div className={classes.Actions}>
-                    <button disabled={!formIsValid}>Share Meal</button>
-                </div>
-            </form>
-        </section>
+                    <div className={classes.Actions}>
+                        <button disabled={!formIsValid}>Share Meal</button>
+                    </div>
+                </form>
+            </section>
+        </Fragment>
     )
 }

@@ -3,8 +3,13 @@
 import fs from "node:fs"
 import slugify from 'slugify'
 import xss from 'xss'
+import { NextResponse } from 'next/server'
 
 import { saveNewMeal } from "./meals"
+
+const isTextEmpty = (text) => {
+    return !text || text.trim() === ""
+}
 
 export const saveMeal = async (meal) => {
     meal.mealId = slugify(meal.title, { lower: true })
@@ -21,6 +26,15 @@ export const saveMeal = async (meal) => {
             throw new Error("Saving image has failed!")
         }
     })
+
+    // TODO: add input validation here
+    if (isTextEmpty(meal.title) || isTextEmpty(meal.summary) ||
+        isTextEmpty(meal.instructions) || isTextEmpty(meal.creator) || isTextEmpty(meal.creator_email)) {
+            return {
+                error: "Invalid input",
+                status: "400"
+            }
+        }
 
     meal.image = `/images/${fileName}`
 
